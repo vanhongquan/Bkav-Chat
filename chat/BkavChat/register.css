@@ -1,0 +1,401 @@
+body{
+  margin: 0;
+}
+
+.container {
+  width: 100%; height: 100vh; position: relative; background: #F6F6F6; border-radius: 40px; overflow: hidden;
+}
+
+.backgroundOrangeBlue{
+  width: 60%; 
+  left: 30%; 
+  top: 45%;
+  transform: translate(-50%, -50%); 
+  position: absolute;
+}
+
+.imageOrangeBlue{
+  width: 800px; height: 800px; left: 50px; top: 100px; position: relative;
+}
+
+.imageOrangeBlue img{
+  width: 100%; height: 100%;
+}
+
+.signUpButtonBlock{
+  width: 60%; 
+  left: 98.7%; 
+  top: 70%;
+  transform: translate(-50%, -50%); 
+  position: absolute;
+}
+
+.buttonBlock {
+  width: 400px; height: 60px; left: 0px; top: 9px; position: absolute; background: #4461F2; box-shadow: 0px 12px 21px 4px rgba(68, 97, 242, 0.15); border-radius: 10px
+}
+
+.registrationButton {
+  width: 400px;
+  height: 60px;
+  left: 0px;
+  top: 9px;
+  position: absolute;
+  background: #4461F2;
+  box-shadow: 0px 12px 21px 4px rgba(68, 97, 242, 0.15);
+  border-radius: 10px;
+  border: none;
+  color: white;
+  font-size: 19px;
+  font-family: Roboto;
+  font-weight: 700;
+  line-height: 60px;
+  letter-spacing: 1.50px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.topSide{
+  width: 55%; 
+  left: 100%; 
+  top: 10%;
+  transform: translate(-50%, -50%); 
+  position: absolute;
+}
+
+.language{
+  width: 79px; 
+  height: 16px; 
+  left: 0px; 
+  top: 12px; 
+  position: absolute;
+}
+
+.iconDown{
+  width: 13px; 
+  height: 7px; 
+  left: 63px; 
+  top: 0px; 
+  position: absolute;
+}
+
+.english{
+  width: 74px; 
+  height: 16px; 
+  left: 0px; 
+  top: 0px; 
+  position: absolute; 
+  color: black; 
+  font-size: 17px; 
+  font-family: Roboto; 
+  font-weight: 500; 
+  letter-spacing: 1.02px; 
+  word-wrap: break-word;
+}
+
+.registrationButtonTab{
+  width: 99px; 
+  height: 31px; 
+  left: 256px; 
+  top: 8px; 
+  position: absolute;
+}
+
+.rgButtonTab{
+  width: 34.78px; 
+  height: 0px; 
+  left: 22.74px; 
+  top: 31px; 
+  position: absolute; 
+  border: 3px #4461F2 solid;
+}
+
+.registrationTab{
+  width: 99px; 
+  height: 16px; 
+  left: 0px; 
+  top: 0px; 
+  position: absolute; 
+  color: #4461F2; 
+  font-size: 17px; 
+  font-family: Roboto; 
+  font-weight: 700; 
+  letter-spacing: 1.02px; 
+  word-wrap: break-word;
+  background-color: transparent; 
+  border: none; 
+  cursor: pointer; 
+  white-space: nowrap;
+}
+
+.loginButtonTab{
+  width: 149.99px; 
+  height: 42px; 
+  left: 96px; 
+  top: 0px; 
+  position: absolute;
+}
+
+.lgButtonTab{
+  width: 149.99px; 
+  height: 42px; 
+  left: 0px; 
+  top: 0px; 
+  position: absolute; 
+  background: white; 
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05); 
+  border-radius: 21px;
+}
+
+.loginTab{
+  width: 99.10px; 
+  height: 16px; 
+  left: 28.12px; 
+  top: 12px; 
+  position: absolute; 
+  color: #4461F2; 
+  font-size: 17px; 
+  font-family: Roboto; 
+  font-weight: 700; 
+  letter-spacing: 1.02px; 
+  word-wrap: break-word;
+  background-color: transparent; 
+  border: none; 
+  cursor: pointer; 
+  white-space: nowrap;
+}
+
+.inputField{
+  width: 60%; 
+  left: 98.7%; 
+  top: 42%;
+  transform: translate(-50%, -50%); 
+  position: absolute;
+}
+
+.account{
+  width: 400px; 
+  height: 77px; 
+  position: relative;
+}
+
+.inputAccountBlock{
+  width: 400px; 
+  height: 60px; 
+  background: #EAF0F7; 
+  border-radius: 10px;
+}
+
+.inputAccount{
+  width: 360px; 
+  height: 40px; 
+  left: 20px; 
+  top: 10px; 
+  position: absolute; 
+  border: none; 
+  background: #EAF0F7; 
+  border-radius: 5px; 
+  padding: 5px; 
+  font-size: 18px; 
+  color: #4F555A; 
+  font-family: Roboto; 
+  font-weight: 500; 
+  line-height: 24px; 
+  outline: none;
+}
+
+.iconInField{
+  width: 20px; 
+  height: 20px; 
+  position: relative; 
+  left: 360px; 
+  top: 22px; 
+  cursor: pointer;
+}
+
+.password{
+  width: 400px; 
+  height: 77px; 
+  position: absolute; 
+  top: 100px;
+}
+
+.inputPasswordBlock{
+  width: 400px; 
+  height: 60px; 
+  background: #EAF0F7; 
+  border-radius: 10px;
+}
+
+.inputPassword {
+  width: 360px; 
+  height: 40px; 
+  left: 20px; 
+  top: 10px; 
+  position: absolute; 
+  border: none; 
+  background: #EAF0F7; 
+  border-radius: 5px; 
+  padding: 5px; 
+  font-size: 18px; 
+  color: #667085; 
+  font-family: Inter; 
+  font-weight: 400; 
+  line-height: 24px; 
+  outline: none;
+}
+
+.comfirmPassword{
+  width: 400px; 
+  height: 77px; 
+  position: absolute; 
+  top: 195px;
+}
+
+.inputConfirmPasswordBlock{
+  width: 400px; 
+  height: 60px; 
+  background: #EAF0F7; 
+  border-radius: 10px;
+}
+
+.inputConfirmPassword {
+  width: 360px; 
+  height: 40px; 
+  left: 20px; 
+  top: 10px; 
+  position: absolute; 
+  border: none; 
+  background: #EAF0F7; 
+  border-radius: 5px; 
+  padding: 5px; 
+  font-size: 18px; 
+  color: #667085; 
+  font-family: Inter; 
+  font-weight: 400; 
+  line-height: 24px; 
+  outline: none;
+}
+
+.lableAccount{
+  width: 10%; 
+  left: 62%; 
+  top: 41%;
+  transform: translate(-50%, -50%); 
+  position: absolute; 
+  color: black; 
+  font-size: 19px; 
+  font-family: Roboto; 
+  font-weight: 400; 
+  line-height: 77px; 
+  letter-spacing: 1.71px; 
+  word-wrap: break-word;
+}
+
+.lablePassword{
+  width: 10%; 
+  left: 62%; 
+  top: 52.3%;
+  transform: translate(-50%, -50%); 
+  position: absolute; 
+  color: black; 
+  font-size: 19px; 
+  font-family: Roboto; 
+  font-weight: 400; 
+  line-height: 77px; 
+  letter-spacing: 1.71px; 
+  word-wrap: break-word;
+}
+
+
+.lableConfirmPassword{
+  width: 10%; 
+  left: 62%; 
+  top: 62.2%;
+  transform: translate(-50%, -50%); 
+  position: absolute; 
+  color: black; 
+  font-size: 19px; 
+  font-family: Roboto; 
+  font-weight: 400; 
+  line-height: 77px; 
+  letter-spacing: 1.71px; 
+  word-wrap: break-word;
+}
+
+.lableRegister{
+  width: 50%; 
+  left: 93.5%; 
+  top: 30%;
+  transform: translate(-50%, -50%); 
+  position: absolute; 
+  color: black; 
+  font-size: 48px; 
+  font-family: Roboto; 
+  font-weight: 400; 
+  line-height: 77px; 
+  word-wrap: break-word;
+}
+
+.lable{
+  width: 50%; 
+  left: 93.5%; 
+  top: 83%;
+  transform: translate(-50%, -50%); 
+  position: absolute;
+}
+
+.lable span, a{
+  color: black; 
+  font-size: 23px; 
+  font-family: Roboto; 
+  font-weight: 400; 
+  word-wrap: break-word;
+}
+
+.lable a {
+    text-decoration: none;
+    color: #4461F2;
+}
+
+.projectImage {
+  width: 25%;
+  height: 50%; 
+  left: 28%; 
+  top: 57%;
+  transform: translate(-50%, -50%); 
+  position: absolute;
+}
+
+.logo {
+  width: 70%; 
+  left: 7%; 
+  top: 7%;
+  transform: translate(-50%, -50%); 
+  position: absolute;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo img {
+    width: 100px;
+    height: 40px;
+}
+
+img{
+  width: 100%; height: 100%;  
+}
+
+.errorText{
+  width: 50%; 
+  left: 99.3%; 
+  top: 70%;
+  transform: translate(-50%, -50%); 
+  position: absolute;
+  font-size: 14px;
+  font-family: Roboto;
+  font-weight: 500;
+  line-height: 77px; 
+  letter-spacing: 1.40px;
+  color: red;
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Form</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <div class="container">
+    <div class="backgroundOrangeBlue">
+      <div class="imageOrangeBlue">
+        <img src="../../images/Background.png" alt="Background OrangeBlue">
+      </div>
+    </div>
+    <div class="loginButtonBlock">
+      <a href="#" class="passwordResetLink">Quên mật khẩu ?</a>
+      <div class="buttonBlock">
+        <button class="loginButton" id="loginButton">Đăng nhập</button>
+      </div>
+      <div class="continueWith">
+        <div class="continueWithText">Hoặc tiếp tục với</div>
+        <div class="separatorLeft"></div>
+        <div class="separatorRight"></div>
+      </div>
+      <div class="iconFacebook">
+        <div class="outsideIcon">
+          <div class="insideIcon">
+            <img src="../../images/icons8-facebook-48.png" alt="Facebook Logo">
+          </div>
+        </div>
+      </div>
+      <div class="iconApple">
+        <div class="outsideIcon">
+          <div class="insideIcon">
+            <img src="../../images/icons8-apple-50.png" alt="Apple Logo">
+          </div>
+        </div>
+      </div>
+      <div class="iconGoogle">
+        <div class="outsideIcon">
+          <div class="insideIcon">
+            <img src="../../images/icons8-google-48.png" alt="Google Logo">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="topSide">
+      <div class="language">
+        <div class="iconDown">
+          <img src="../../images/IconEnglish.png" alt="IconEnglish Logo">
+        </div>
+        <div class="english">English</div>
+      </div>
+      <div class="registrationButtonTab">
+        <div class="rgButtonTab">
+          <button class="registrationTab" id="registerTab">Đăng ký</button>
+        </div>
+      </div>
+      <div class="loginButtonTab">
+        <button class="loginTab">Đăng nhập</button>
+        <div class="lgButtonTab"></div>
+      </div>
+    </div>
+    <div class="lableBlock">
+      <div class="lable">Đăng nhập để <br /> kết nối</div>
+      <div class="registrationLink">
+        <span>Nếu chưa có tài khoản Đăng ký tại</span>
+        <a href="register.html">đây!</a>
+      </div>
+    </div>
+    <form class="inputField">
+      <div class="account">
+        <div class="inputAccountBlock">
+          <input type="text" placeholder="Nhập tài khoản" class="inputAccount" id="username">
+          <div class="iconInField">
+            <img src="../../images/X Icon.png" id="clearUsername" alt="X LogoUserName">
+          </div>
+        </div>
+      </div>
+      <div class="password">
+        <div class="inputPasswordBlock">
+          <input type="password" placeholder="••••••••" class="inputPassword" id="password">
+          <div class="iconInField">
+            <img src="../../images/X IconPassword.png" id="togglePassword" alt="X LogoPassword">
+          </div>
+        </div>
+      </div>
+    </form>
+    <div class="errorText">
+      <p id="errorText" style="color: red;"></p>
+    </div>
+    <img class="projectImage" src="../../images/isometric view of colleagues discussing the project.png"
+      alt="Isometric view of colleagues discussing the project">
+    <div class="logo">
+      <img src="../../images/Logo.png" alt="Logo">
+    </div>
+  </div>
+  <script src="login.js"></script>
+</body>
+</html>

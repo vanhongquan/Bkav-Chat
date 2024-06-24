@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Chat</title>
+  <link rel="stylesheet" href="chat.css">
+</head>
+<body>
+  <div class="leftBlock">
+    <div class="headerLeftBlock">
+      <img id="imageMenu" src="../../images/Mouse-hover button.png" alt="Menu" style="cursor: pointer;">
+      <div class="search">
+        <img style="width: 25px; height: 25px" src="../../images/search.png" />
+        <input type="search" class="enterSearch" placeholder="Tìm kiếm" style="width: 100%;" id="loadFriends">
+      </div>
+    </div>
+    <div id="friendList" class="friendList"></div>
+    <div id="renameBox" class="renameBox">
+      <input type="text" id="newName" placeholder="Enter new name">
+      <button id="renameButton">Rename</button>
+    </div>
+  </div>
+  <div class="textChat" id="textChat">
+    <div class="headerRightBlock">
+      <div class="avatarHeader">
+        <img src="../../images/AvatarElonMusk.png" width="40px" height="40px" id="avatarFriendIsSelect" style="border-radius: 50%;">
+        <div class="dotStatus" id="statusIsSelected"></div>
+      </div>
+      <div class="headerTitle" id="headerTitle">Elon Musk</div>
+      <div class="subHeader" id="subHeader">Online for 10 mins</div>
+    </div>
+    <div class="chat-messages">
+      <div class="divideInColumn" id="chatContainer">
+        <div class="friendColumn">
+          <div class="avatarFriend">
+            <div class="photoShape">
+              <img width="36px" ; height="36px" ; src="../../images/AvatarElonMusk.png" id="avatarInMessageFriend"
+                style="border-radius: 50%;" />
+            </div>
+          </div>
+          <div class="messageBlock">
+            <div class="messageShape">
+              <div class="messageShapeFormat">
+                <div class="messageFriendTextFormat">Hôm trước bạn đi hát ở đâu đấyjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj</div>
+              </div>
+              <img src="../../images/iconSmileInMessage.png" alt="iconSmileInMessage" class="iconleft hiddenIcon"
+                id="iconSmileLeft">
+              <img src="../../images/iconMenuInMessage.png" alt="iconMenuInMessage" class="iconleft hiddenIcon"
+                id="iconMenuLeft">
+            </div>
+            <div class="messageTime">2:14 PM</div>
+          </div>
+        </div>
+        <div class="friendColumn">
+          <div class="avatarFriend">
+            <div class="photoShape">
+              <img width="36px" ; height="36px" ; src="../../images/AvatarElonMusk.png" id="avatarInMessageFriend"
+                style="border-radius: 50%;" />
+            </div>
+          </div>
+          <div class="messageBlock">
+            <div class="messageShape">
+              <div class="messageShapeFormat">
+                <div class="Image" style="width: 290px;">
+                  <img src="../../images/isometric view of colleagues discussing the project.png" alt="" width="320px"
+                    height="236px"
+                    style="background-image: url(https://via.placeholder.com/252x188); border-radius: 5%; margin-left: -15px; margin-top: -7px;">
+                  <div class="messageFriendTextFormat">Hôm trước bạn đi hát ở đâu đấyjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj
+                  </div>
+                </div>
+                
+              </div>
+              <img src="../../images/iconSmileInMessage.png" alt="iconSmileInMessage" class="iconleft hiddenIcon"
+                id="iconSmileLeft">
+              <img src="../../images/iconMenuInMessage.png" alt="iconMenuInMessage" class="iconleft hiddenIcon"
+                id="iconMenuLeft">
+            </div>
+            <div class="messageTime">2:14 PM</div>
+          </div>
+        </div>
+
+        <div class="friendColumn">
+          <div class="avatarFriend">
+            <div class="photoShape">
+              <img width="36px" ; height="36px" ; src="../../images/AvatarElonMusk.png" id="avatarInMessageFriend"
+                style="border-radius: 50%;" />
+            </div>
+          </div>
+          <div class="messageBlock">
+            <div class="emojiInMessageLeft" id="emojiInMessageLeft">
+              <div class="emoji"><span style="font-size: 24px;">❤️</span></div>
+              <div class="emoji"><span style="font-size: 24px;">👍</span> </div>
+              <div class="emoji"><span style="font-size: 24px;">👎</span></div>
+              <div class="emoji"><span style="font-size: 24px;">😂</span> </div>
+              <div class="emoji"><span style="font-size: 24px;">😮</span> </div>
+              <div class="emoji"><span style="font-size: 24px;">😞</span></div>
+            </div>
+
+            <div class="messageShape">
+              <div class="messageShapeFormat">
+                <div class="Image" style="width: 290px;">
+                  <img src="../../images/iconfile.png" alt="" width="30px" height="30px"
+                    style="margin-left: 5%; margin-top: 10%;">
+                    <span style="font-size: 40px;">quan</span>
+                  <div class="messageFriendTextFormat">Hôm trước bạn đi hát ở đâu
+                    đấyjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj
+                  </div>
+                </div>
+                
+              </div>
+              <img src="../../images/iconSmileInMessage.png" alt="iconSmileInMessage" class="iconleft hiddenIcon"
+                id="iconSmileLeft">
+              <img src="../../images/iconMenuInMessage.png" alt="iconMenuInMessage" class="iconleft hiddenIcon"
+                id="iconMenuLeft">
+            </div>
+            <div class="messageTime">2:14 PM</div>
+          </div>
+        </div>
+
+        <div class="myColumn">
+          <div class="emojiInMessageRight" id="emojiInMessageRight">
+            <div class="emoji"><span style="font-size: 24px;">❤️</span></div>
+            <div class="emoji"><span style="font-size: 24px;">👍</span> </div>
+            <div class="emoji"><span style="font-size: 24px;">👎</span></div>
+            <div class="emoji"><span style="font-size: 24px;">😂</span> </div>
+            <div class="emoji"><span style="font-size: 24px;">😮</span> </div>
+            <div class="emoji"><span style="font-size: 24px;">😞</span></div>
+          </div>
+          <div class="myFormatColumn">
+            <div class="textBlockInColumn">
+              <div class="myFormatBlock">
+                <div class="letterAlignmentInBlock">
+                  <div class="myMessage">Quán De Paris bạn ơi </div>
+                  <img src="../../images/iconSmileInMessage.png" alt="iconSmileInMessage" class="iconright hiddenIcon"
+                  id="iconSmileRight">
+                <img src="../../images/iconMenuInMessage.png" alt="iconMenuInMessage" class="iconright hiddenIcon"
+                  id="iconMenuRight">
+                  <img id="messageImage" style="display: none;" src="" alt="Image" class="messageImage">
+                </div>
+              </div>
+            </div>
+            <div style="display: inline-flex">
+              <div class="messageTime">2:16 PM</div>
+              <img src="../../images/received.png" alt="watched">
+            </div>
+          </div>
+        </div>
+        <div class="myColumn">
+          <div class="myFormatColumn">
+            <div class="textBlockInColumn">
+              <div class="myFormatBlock">
+                <div class="Image" style="width: 300px;">
+                  <img src="../../images/isometric view of colleagues discussing the project.png" alt="" width="300px"
+                    height="236px"
+                    style="background-image: url(https://via.placeholder.com/252x188); border-radius: 5%;">
+                  <div class="letterAlignmentInBlock">
+                    <div class="myMessage">Quán De Paris bạn ơi </div>
+                  </div>
+                  <img src="../../images/iconSmileInMessage.png" alt="iconSmileInMessage" class="iconright hiddenIcon"
+                    id="iconSmileRight">
+                  <img src="../../images/iconMenuInMessage.png" alt="iconMenuInMessage" class="iconright hiddenIcon"
+                    id="iconMenuRight">
+                </div>
+              </div>
+            </div>
+            <div style="display: inline-flex">
+              <div class="messageTime">2:16 PM</div>
+              <img src="../../images/received.png" alt="watched">
+            </div>
+          </div>
+        </div>
+        <div class="myColumn">
+          <div class="myFormatColumn">
+            <div class="textBlockInColumn">
+              <div class="myFormatBlock">
+                <div class="Image" style="width: 300px;">
+                  <img src="../../images/iconfile.png" alt="" width="30px" height="30px"
+                    style="margin-left: 5%; margin-top: 10%;">
+                  <span style="font-size: 40px;">quan</span>
+                  <div class="letterAlignmentInBlock">
+                    <div class="myMessage">Quán De Paris bạn ơi </div>
+                    <img src="../../images/iconSmileInMessage.png" alt="iconSmileInMessage" class="iconright hiddenIcon"
+                    id="iconSmileRight">
+                  <img src="../../images/iconMenuInMessage.png" alt="iconMenuInMessage" class="iconright hiddenIcon"
+                    id="iconMenuRight">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="display: inline-flex">
+              <div class="messageTime">2:16 PM</div>
+              <img src="../../images/received.png" alt="watched">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="chat-container">
+    <div class="chat-input">
+      <div>
+        <img class="fileButton" id="fileButton" src="../../images/Left buttons.png" alt="Left Button">
+        <input type="file" id="fileInput" accept="image/*, application/*">
+      </div>
+      <div class="input-box">
+        <textarea id="textInput" placeholder="Nhập tin nhắn"></textarea>
+        <img id="emojiButton" src="../../images/Icon_smile.png" alt="Emoji Button" class="emojiButton">
+        <img id="sendButton" src="../../images/Right button.png" alt="Send Button" class="sendButton">
+      </div>
+    </div>
+  </div>
+  <div class="emojiPopup" id="emojiPopup" >
+    <span>😊</span>
+    <span>😂</span>
+    <span>😍</span>
+    <span>😢</span>
+    <span>😡</span>
+    <span>👍</span>
+    <span>👎</span>
+    <span>❤️</span>
+    <span>👏</span>
+    <span>🙌</span>
+    <span>🤔</span>
+    <span>😮</span>
+    <span>🥳</span>
+    <span>😎</span>
+    <span>😴</span>
+    <span>🎉</span>
+    <span>🔥</span>
+    <span>💯</span>
+    <span>🚀</span>
+    <span>😭</span>
+    <span>😮‍💨</span>
+    <span>😤</span>
+    <span>😠</span>
+    <span>😡</span>
+    <span>🤬</span>
+    <span>🤯</span>
+    <span>😳</span>
+    <span>🥵</span>
+    <span>🥶</span>
+    <span>😱</span>
+    <span>😨</span>
+    <span>😰</span>
+    <span>😥</span>
+    <span>😓</span>
+    <span>🫣</span>
+    <span>🤗</span>
+  </div>
+  <div id="menuBlock" class="individualBlock">
+    <div class="splitColumnsInIndividualBlocks">
+      <div class="lineFormatOfIndividualBlock">
+        <div class="elementFormatBlockInIndividualBlock">
+          <img src="" id="userAvatar" width="49px" height="49px" style="border-radius: 50%;">
+          <div class="formatTextInIndividualBlocks" style="font-weight: 700; cursor: pointer;" id="userName">Cristal
+            Parker</div>
+        </div>
+      </div>
+      <input type="file" id="imageInput" accept="image/*" style="display: none;">
+      <div id="reUserNameBox" class="reUserNameBox">
+        <input type="text" id="newUserName" placeholder="Enter new name">
+        <button id="reUserNameButton">Rename</button>
+      </div>
+      <div class="formatTheOneLineOfTheIndividualBlock">
+        <div class="elementFormatBlockInIndividualBlock">
+          <div class="iconFormatInIndividualBlock">
+            <img style="width: 20px; height: 20px" src="../../images/@_mention.png" />
+          </div>
+          <div class="formatTextInIndividualBlocks">Nhắc đến bạn</div>
+        </div>
+      </div>
+      <div class="formatTheSecondLineOfTheIndividualBlock">
+        <div class="elementFormatBlockInIndividualBlock">
+          <div class="iconFormatInIndividualBlock">
+            <img src="../../images/group.png" alt="">
+          </div>
+          <div class="formatTextInIndividualBlocks">Tạo nhóm</div>
+        </div>
+      </div>
+      <div class="formatTheOneLineOfTheIndividualBlock">
+        <div class="elementFormatBlockInIndividualBlock">
+          <div class="iconFormatInIndividualBlock">
+            <img src="../../images/light and dark interface.png" alt="">
+          </div>
+          <div class="formatTextInIndividualBlocks">Giao diện tối</div>
+        </div>
+        <div style="width: 50px; height: 26px; position: relative">
+          <div style="width: 50px; height: 26px; left: 0px; top: 0px; position: absolute; background: #B4B7BB; border-radius: 9999px"></div>
+          <div style="width: 18px; height: 18px; left: 4px; top: 4px; position: absolute; background: #E9EAED; border-radius: 9999px"></div>
+        </div>
+      </div>
+      <div class="formatTheOneLineOfTheIndividualBlock">
+        <div class="elementFormatBlockInIndividualBlock">
+          <div class="iconFormatInIndividualBlock">
+            <img src="../../images/icon person.png" alt="">
+          </div>
+          <div class="formatTextInIndividualBlocks">Đăng xuất</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="chat.js"></script>
+</body>
+
+</html>
