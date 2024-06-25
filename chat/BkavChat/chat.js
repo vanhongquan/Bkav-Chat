@@ -214,7 +214,7 @@ $(document).ready(function () {
             console.error('Request failed');
         };
 
-        xhr.setRequestHeader('Authorization', getHeaders().Authorization); // Add your authorization header
+        xhr.setRequestHeader('Authorization', getHeaders().Authorization); 
         xhr.send(formdata);
     }
 
@@ -243,9 +243,9 @@ $(document).ready(function () {
                                         <div class="letterAlignmentInBlock">
                                             <div class="myMessage multiLineText">${messages.Content || ''}</div>
                                         </div>
-                                        <img src="../../images/iconSmileInMessage.png" alt="iconSmileInMessage" class="iconright hiddenIcon" id="iconSmileRight">
-                                        <img src="../../images/iconMenuInMessage.png" alt="iconMenuInMessage" class="iconright hiddenIcon" id="iconMenuRight">
                                     </div> 
+                                    <img src="../../images/iconSmileInMessage.png" alt="iconSmileInMessage" class="iconright hiddenIcon" id="iconSmileRight">
+                                    <img src="../../images/iconMenuInMessage.png" alt="iconMenuInMessage" class="iconright hiddenIcon" id="iconMenuRight">
                                 </div>
                             </div>
                             <div style="display: inline-flex">
@@ -272,9 +272,9 @@ $(document).ready(function () {
                                         <div class="letterAlignmentInBlock">
                                             <div class="myMessage multiLineText">${messages.Content || ''}</div>
                                         </div>
-                                        <img src="../../images/iconSmileInMessage.png" alt="iconSmileInMessage" class="iconright hiddenIcon" id="iconSmileRight">
-                                        <img src="../../images/iconMenuInMessage.png" alt="iconMenuInMessage" class="iconright hiddenIcon" id="iconMenuRight">
                                     </div>
+                                    <img src="../../images/iconSmileInMessage.png" alt="iconSmileInMessage" class="iconright hiddenIcon" id="iconSmileRight">
+                                    <img src="../../images/iconMenuInMessage.png" alt="iconMenuInMessage" class="iconright hiddenIcon" id="iconMenuRight">
                                 </div>
                             </div>
                             <div style="display: inline-flex">
@@ -420,7 +420,7 @@ function displayMessages(messages) {
                                         </div>
                                         <img src="../../images/iconSmileInMessage.png" alt="iconSmileInMessage" class="iconleft hiddenIcon" id="iconSmileLeft">
                                         <img src="../../images/iconMenuInMessage.png" alt="iconMenuInMessage" class="iconleft hiddenIcon" id="iconMenuLeft">
-                                    </div>
+                                    </div>  
                                 </div>
                                 <div class="messageTime">${currentTime}</div>
                             </div>
@@ -440,15 +440,15 @@ function displayMessages(messages) {
                                 <div class="messageShape">
                                     <div class="messageShapeFormat">
                                         <div class="Image" style="width: 300px; overflow:hidden;text-overflow: ellipsis;white-space: nowrap;">
-                                        <a href="${urlFile}" download>
-                                            <img src="../../images/iconfile.png" alt="" width="30px" height="30px"  style="margin-left: 5%; margin-top: 10%;">
-                                            <span style="font-size: 40px;">${file.FileName}</span>
-                                        </a>   
+                                            <a href="${urlFile}" download>
+                                                <img src="../../images/iconfile.png" alt="" width="30px" height="30px"  style="margin-left: 5%; margin-top: 10%;">
+                                                <span style="font-size: 40px;">${file.FileName}</span>
+                                            </a>   
                                             <div class="messageFriendTextFormat multiLineText">${message.Content || ''}</div>   
                                         </div>
-                                        <img src="../../images/iconSmileInMessage.png" alt="iconSmileInMessage" class="iconleft hiddenIcon" id="iconSmileLeft">
-                                        <img src="../../images/iconMenuInMessage.png" alt="iconMenuInMessage" class="iconleft hiddenIcon" id="iconMenuLeft">
                                     </div>
+                                    <img src="../../images/iconSmileInMessage.png" alt="iconSmileInMessage" class="iconleft hiddenIcon" id="iconSmileLeft">
+                                    <img src="../../images/iconMenuInMessage.png" alt="iconMenuInMessage" class="iconleft hiddenIcon" id="iconMenuLeft">
                                 </div>  
                                 <div class="messageTime">${currentTime}</div>
                             </div>
@@ -466,8 +466,8 @@ function displayMessages(messages) {
                         <div class="messageShape">
                             <div class="messageShapeFormat">
                                 <div class="messageFriendTextFormat multiLineText">${message.Content || ''}</div>
-                            <img src="../../images/iconSmileInMessage.png" alt="iconSmileInMessage" class="iconleft hiddenIcon" id="iconSmileLeft">
-                            <img src="../../images/iconMenuInMessage.png" alt="iconMenuInMessage" class="iconleft hiddenIcon" id="iconMenuLeft">
+                                <img src="../../images/iconSmileInMessage.png" alt="iconSmileInMessage" class="iconleft hiddenIcon" id="iconSmileLeft">
+                                <img src="../../images/iconMenuInMessage.png" alt="iconMenuInMessage" class="iconleft hiddenIcon" id="iconMenuLeft">
                             </div>
                         </div>
                         <div class="messageTime">${currentTime}</div>
@@ -490,9 +490,9 @@ function displayMessages(messages) {
                                             <div class="letterAlignmentInBlock">
                                                 <div class="myMessage multiLineText">${message.Content || ''}</div>
                                             </div>
-                                            <img src="../../images/iconSmileInMessage.png" alt="iconSmileInMessage" class="iconright hiddenIcon" id="iconSmileRight">
-                                            <img src="../../images/iconMenuInMessage.png" alt="iconMenuInMessage" class="iconright hiddenIcon" id="iconMenuRight">
-                                            </div>
+                                        </div>
+                                        <img src="../../images/iconSmileInMessage.png" alt="iconSmileInMessage" class="iconright hiddenIcon" id="iconSmileRight">
+                                        <img src="../../images/iconMenuInMessage.png" alt="iconMenuInMessage" class="iconright hiddenIcon" id="iconMenuRight">
                                         </div>
                                     </div>
                                 <div style="display: inline-flex">
@@ -518,9 +518,9 @@ function displayMessages(messages) {
                                             <div class="letterAlignmentInBlock">
                                                 <div class="myMessage multiLineText">${message.Content || ''}</div>
                                             </div>
-                                            <img src="../../images/iconSmileInMessage.png" alt="iconSmileInMessage" class="iconright hiddenIcon" id="iconSmileRight">
-                                            <img src="../../images/iconMenuInMessage.png" alt="iconMenuInMessage" class="iconright hiddenIcon" id="iconMenuRight">
                                         </div>
+                                        <img src="../../images/iconSmileInMessage.png" alt="iconSmileInMessage" class="iconright hiddenIcon" id="iconSmileRight">
+                                        <img src="../../images/iconMenuInMessage.png" alt="iconMenuInMessage" class="iconright hiddenIcon" id="iconMenuRight">
                                     </div>
                                 </div>
                                 <div style="display: inline-flex">
@@ -613,9 +613,9 @@ function displayFriendMessages(messages) {
                                             </a>   
                                             <div class="messageFriendTextFormat multiLineText">${message.Content || ''}</div> 
                                         </div>
-                                        <img src="../../images/iconSmileInMessage.png" alt="iconSmileInMessage" class="iconleft hiddenIcon" id="iconSmileLeft">
-                                        <img src="../../images/iconMenuInMessage.png" alt="iconMenuInMessage" class="iconleft hiddenIcon" id="iconMenuLeft">
                                     </div>
+                                    <img src="../../images/iconSmileInMessage.png" alt="iconSmileInMessage" class="iconleft hiddenIcon" id="iconSmileLeft">
+                                    <img src="../../images/iconMenuInMessage.png" alt="iconMenuInMessage" class="iconleft hiddenIcon" id="iconMenuLeft">
                                 </div>
                                 <div class="messageTime">${currentTime}</div>
                             </div>
@@ -700,7 +700,7 @@ textChat.addEventListener('dblclick', function (event) {
     });   
 });
 
-function fetchLastMessage(sFriendID, messageContent) {
+function fetchLastMessage(sFriendID, messageContent, messageTime) {
     fetch(`http://localhost:8888/api/message/get-message?FriendID=${sFriendID}`, {
         method: 'GET',
         headers: getHeaders()
@@ -709,20 +709,26 @@ function fetchLastMessage(sFriendID, messageContent) {
     .then(data => {
         if (data.status !== 1) {
             messageContent.textContent = "Chưa có tin nhắn";
+            messageTime.textContent = ""; // Xóa nội dung thời gian nếu không có tin nhắn
             return;
         }
         const messages = data.data;
         if (messages.length > 0) {
             const lastMessage = messages[messages.length - 1];
             const displayMessage = constructDisplayMessage(lastMessage);
+            const formattedTime = formatMessageTime(new Date(lastMessage.CreatedAt), new Date());
+            
             messageContent.textContent = displayMessage;
+            messageTime.textContent = formattedTime;
         } else {
             messageContent.textContent = "Chưa có tin nhắn";
+            messageTime.textContent = ""; // Xóa nội dung thời gian nếu không có tin nhắn
         }
     })
     .catch(error => {
         console.error('Error fetching last message:', error);
         messageContent.textContent = "Chưa có tin nhắn";
+        messageTime.textContent = ""; // Xóa nội dung thời gian nếu xảy ra lỗi
     });
 }
 
@@ -749,6 +755,35 @@ function constructDisplayMessage(lastMessage) {
     }
 
     return displayMessage;
+}
+
+function formatMessageTime(messageTime, currentTime) {
+    const oneDayMs = 24 * 60 * 60 * 1000; // Số mili giây trong một ngày
+    const oneWeekMs = 7 * oneDayMs; // Số mili giây trong một tuần
+
+    // Thời gian hiện tại
+    const today = new Date(currentTime.setHours(0, 0, 0, 0));
+
+    // Định dạng thời gian tin nhắn
+    let formattedTime = '';
+
+    if (today.getTime() === messageTime.getTime()) {
+        // Nếu là cùng một ngày, hiển thị theo định dạng AM/PM
+        formattedTime = messageTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    } else if (today.getTime() - messageTime.getTime() === oneDayMs) {
+        // Nếu là ngày hôm qua
+        formattedTime = 'Yesterday';
+    } else if (today.getTime() - messageTime.getTime() <= oneWeekMs) {
+        // Nếu trong vòng 1 tuần, hiển thị tên của ngày trong tuần
+        const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        const dayOfWeek = messageTime.getDay(); // Lấy chỉ số của ngày trong tuần (0 - 6)
+        formattedTime = daysOfWeek[dayOfWeek];
+    } else {
+        // Nếu lâu hơn 1 tuần, hiển thị ngày tháng năm
+        formattedTime = messageTime.toLocaleDateString([], { year: 'numeric', month: 'numeric', day: 'numeric' });
+    }
+
+    return formattedTime;
 }
 
 function displayChatFriends(friends) {
@@ -791,6 +826,8 @@ function displayChatFriends(friends) {
         friendName.textContent = getFriendName(friend);
         const messageContent = document.createElement('div');
         messageContent.className = 'messageContent';
+        const messageTime = document.createElement('div');
+        messageTime.className = 'messageTime';
         individualPhoto.appendChild(img);
         messageBlock.appendChild(friendName);
         individualPhoto.appendChild(dotStatus);
@@ -798,7 +835,8 @@ function displayChatFriends(friends) {
         chatBlock.appendChild(messageBlock);
         messageBlock.appendChild(messageContent);
         friendsListDiv.appendChild(chatBlock);
-        fetchLastMessage(friend.FriendID, messageContent);
+        chatBlock.appendChild(messageTime);
+        fetchLastMessage(friend.FriendID, messageContent, messageTime);
     });
 }
 
