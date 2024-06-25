@@ -1,4 +1,4 @@
-const BASE_URL = 'http://10.2.44.52:8888/api';
+const BASE_URL = 'http://localhost:8888/api';
 const API_URLS = {
     sendMessage: `${BASE_URL}/message/send-message`,
     getMessage: (friendID) => `${BASE_URL}/message/get-message?FriendID=${friendID}`,
@@ -136,7 +136,7 @@ $(document).ready(function () {
             formdata.append("Content", text);
         }
         if (file) {
-            formdata.append("files", file, sessionStorage.getItem('password'));
+            formdata.append("files", file);
         }
         const requestOptions = {
             method: "POST",
@@ -789,7 +789,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const reader = new FileReader();
         reader.onload = (e) => {
             elements.userAvatar.src = e.target.result;
-            updateUser(null, file); // Pass null for new name
+            updateUser(null, file); 
         };
         reader.readAsDataURL(file);
     }

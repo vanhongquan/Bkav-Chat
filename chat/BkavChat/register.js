@@ -53,7 +53,7 @@ function validateForm() {
 }
 
 function registerUser(username, password) {
-    fetch('http://10.2.44.52:8888/api/auth/register', {
+    fetch('http://localhost:8888/api/auth/register', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
