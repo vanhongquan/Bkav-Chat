@@ -1,4 +1,4 @@
-const BASE_URL = 'http://10.2.44.52:8888/api';
+const BASE_URL = 'http://localhost:8888/api';
 const API_URLS = {
     sendMessage: `${BASE_URL}/message/send-message`,
     getMessage: (friendID) => `${BASE_URL}/message/get-message?FriendID=${friendID}`,
@@ -120,113 +120,132 @@ $(document).ready(function () {
                 return;
             } else {
                 event.preventDefault();
-                sendMessage();
+                sendTextMessage();
             }
         }
     });
+
     $('#sendButton').on('click', function () {
-        sendMessage();
+        sendTextMessage();
     });
-    function sendMessage() {
-        var text = $('#textInput').val().trim();
-        var file = $('#fileInput')[0].files[0];
-        var formdata = new FormData();
-        formdata.append("FriendID", localStorage.getItem('FriendID'));
+
+    function sendTextMessage() {
+        const text = $('#textInput').val().trim();
+        const file = $('#fileInput')[0].files[0];
+
+        if (!file && text === '') {
+            return;
+        }
+
         if (text !== '') {
-            formdata.append("Content", text);
+            var messageData = {
+                FriendID: localStorage.getItem('FriendID'),
+                Content: text,
+                CreatedAt: new Date().toISOString(),
+                isSend: 1, 
+                Images: [],
+                Files: []
+            };
+            appendMessage(messageData);
+            sendTextMessageToServer(text);
         }
+
         if (file) {
-            formdata.append("files", file);
+            uploadFile(file, text);
         }
+
+        $('#textInput').val(''); 
+    }
+
+    function sendTextMessageToServer(text) {
+        const formdata = new FormData();
+        formdata.append("FriendID", localStorage.getItem('FriendID'));
+        formdata.append("Content", text);
+
         const requestOptions = {
             method: "POST",
-            headers: getHeaders(),
+            headers: getHeaders(), 
             body: formdata,
             redirect: "follow"
         };
-        fetch(API_URLS.sendMessage, requestOptions)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
+
+        fetch("http://localhost:8888/api/message/send-message", requestOptions)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(result => {
+            
+            })
+            .catch(error => console.error('Error:', error));
+    }
+
+    function uploadFile(file, text) {
+        const formdata = new FormData();
+        formdata.append("FriendID", localStorage.getItem('FriendID'));
+        formdata.append("files", file);
+        if (text !== '') {
+            formdata.append("Content", text);
+        }
+
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "http://localhost:8888/api/message/send-message", true);
+
+        xhr.upload.onprogress = function(event) {
+            if (event.lengthComputable) {
+                var percentComplete = (event.loaded / event.total) * 100;
+                console.log(`Upload progress: ${percentComplete}%`);
             }
-            return response.json();
-        })
-        .then(result => {
-            const messages = result.data;
-            const isSend = messages.isSend;
-            const sentReceivedIcon = isSend === 0 ? 'sent.png' : 'received.png';
-            const currentTime = new Date(messages.CreatedAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', timeZone: 'UTC' });
-            $('.noMessages').remove();
-            $('.titleNoMessages').remove();
-            let chatMessage = '';
-            if (messages.Images.length > 0) {
-                result.data.Images.forEach(image => {
-                    const urlImage = `${BASE_URL}/${image.urlImage}`;
-                    chatMessage = `        
-                        <div class="myColumn">
-                            <div class="myFormatColumn">
-                                <div class="textBlockInColumn">
-                                    <div class="myFormatBlock">
-                                        <div class="Image" style="width: 256px; ">
-                                            <a href="${urlImage}" download>
-                                                <img src="${urlImage}" alt="image" width="252px" height="188px" style="background-image: url(https://via.placeholder.com/252x188);border-radius: 5%;">
-                                            </a>
-                                            <div class="letterAlignmentInBlock">
-                                                <div class="myMessage multiLineText">${text}</div>
-                                            </div>
-                                            <img src="../../images/iconSmileInMessage.png" alt="iconSmileInMessage" class="iconright hiddenIcon" id="iconSmileRight">
-                                            <img src="../../images/iconMenuInMessage.png" alt="iconMenuInMessage" class="iconright hiddenIcon" id="iconMenuRight">
-                                        </div> 
-                                    </div>
-                                </div>
-                                <div style="display: inline-flex">
-                                    <div class="messageTime">${currentTime}</div>
-                                    <img src="../../images/${sentReceivedIcon}" alt="watched">
-                                </div>
-                            </div>
-                        </div>`;
-                    $('#chatContainer').append(chatMessage);
-                });
-            } else if (result.data.Files.length > 0) {
-                result.data.Files.forEach(file => {
-                    const urlFile = `${BASE_URL}/${file.urlFile}`;
-                    chatMessage = `        
-                        <div class="myColumn">
-                            <div class="myFormatColumn">
-                                <div class="textBlockInColumn">
-                                    <div class="myFormatBlock">
-                                        <div class="Image" style="width: 300px; overflow:hidden;text-overflow: ellipsis;white-space: nowrap;">
-                                            <a href="${urlFile}" download>
-                                                <img src="../../images/iconfile.png" alt="" width="30px" height="30px"  style="margin-left: 5%; margin-top: 10%;">
-                                                <span style="font-size: 40px;">${file.FileName}</span>
-                                            </a>
-                                            <div class="letterAlignmentInBlock">
-                                                <div class="myMessage multiLineText">${text}</div>
-                                            </div>
-                                            <img src="../../images/iconSmileInMessage.png" alt="iconSmileInMessage" class="iconright hiddenIcon" id="iconSmileRight">
-                                            <img src="../../images/iconMenuInMessage.png" alt="iconMenuInMessage" class="iconright hiddenIcon" id="iconMenuRight">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div style="display: inline-flex">
-                                    <div class="messageTime">${currentTime}</div>
-                                    <img src="../../images/${sentReceivedIcon}" alt="watched">
-                                </div>
-                            </div>
-                        </div>`;
-                    $('#chatContainer').append(chatMessage);
-                });
+        };
+
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                var result = JSON.parse(xhr.responseText);
+                appendMessage(result.data);
             } else {
+                console.error(`HTTP error! Status: ${xhr.status}`);
+            }
+            $('#fileInput').val('');
+        };
+
+        xhr.onerror = function () {
+            console.error('Request failed');
+        };
+
+        xhr.setRequestHeader('Authorization', getHeaders().Authorization); // Add your authorization header
+        xhr.send(formdata);
+    }
+
+    function appendMessage(messages) {
+        const isSend = messages.isSend;
+        const sentReceivedIcon = isSend === 0 ? 'sent.png' : 'received.png';
+        const currentTime = new Date(messages.CreatedAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', timeZone: 'UTC' });
+
+        $('.noMessages').remove();
+        $('.titleNoMessages').remove();
+
+        let chatMessage = '';
+
+        if (messages.Images.length > 0) {
+            messages.Images.forEach(image => {
+                const urlImage = `${BASE_URL}/${image.urlImage}`;
                 chatMessage = `        
                     <div class="myColumn">
                         <div class="myFormatColumn">
                             <div class="textBlockInColumn">
                                 <div class="myFormatBlock">
-                                    <div class="letterAlignmentInBlock">
-                                        <div class="myMessage multiLineText">${text}</div>
-                                    </div>
-                                    <img src="../../images/iconSmileInMessage.png" alt="iconSmileInMessage" class="iconright hiddenIcon" id="iconSmileRight">
-                                    <img src="../../images/iconMenuInMessage.png" alt="iconMenuInMessage" class="iconright hiddenIcon" id="iconMenuRight">
+                                    <div class="Image" style="width: 256px;">
+                                        <a href="${urlImage}" download>
+                                            <img src="${urlImage}" alt="image" width="252px" height="188px" style="background-image: url(https://via.placeholder.com/252x188);border-radius: 5%;">
+                                        </a>
+                                        <div class="letterAlignmentInBlock">
+                                            <div class="myMessage multiLineText">${messages.Content || ''}</div>
+                                        </div>
+                                        <img src="../../images/iconSmileInMessage.png" alt="iconSmileInMessage" class="iconright hiddenIcon" id="iconSmileRight">
+                                        <img src="../../images/iconMenuInMessage.png" alt="iconMenuInMessage" class="iconright hiddenIcon" id="iconMenuRight">
+                                    </div> 
                                 </div>
                             </div>
                             <div style="display: inline-flex">
@@ -236,13 +255,60 @@ $(document).ready(function () {
                         </div>
                     </div>`;
                 $('#chatContainer').append(chatMessage);
-            }
-            $('#textInput').val('');
-            $('#fileInput').val('');
-        })
-        .catch(error => console.error('Error:', error));
+            });
+        } else if (messages.Files.length > 0) {
+            messages.Files.forEach(file => {
+                const urlFile = `${BASE_URL}/${file.urlFile}`;
+                chatMessage = `        
+                    <div class="myColumn">
+                        <div class="myFormatColumn">
+                            <div class="textBlockInColumn">
+                                <div class="myFormatBlock">
+                                    <div class="Image" style="width: 300px; overflow:hidden;text-overflow: ellipsis;white-space: nowrap;">
+                                        <a href="${urlFile}" download>
+                                            <img src="../../images/iconfile.png" alt="" width="30px" height="30px"  style="margin-left: 5%; margin-top: 10%;">
+                                            <span style="font-size: 40px;">${file.FileName}</span>
+                                        </a>
+                                        <div class="letterAlignmentInBlock">
+                                            <div class="myMessage multiLineText">${messages.Content || ''}</div>
+                                        </div>
+                                        <img src="../../images/iconSmileInMessage.png" alt="iconSmileInMessage" class="iconright hiddenIcon" id="iconSmileRight">
+                                        <img src="../../images/iconMenuInMessage.png" alt="iconMenuInMessage" class="iconright hiddenIcon" id="iconMenuRight">
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="display: inline-flex">
+                                <div class="messageTime">${currentTime}</div>
+                                <img src="../../images/${sentReceivedIcon}" alt="watched">
+                            </div>
+                        </div>
+                    </div>`;
+                $('#chatContainer').append(chatMessage);
+            });
+        } else {
+            chatMessage = `        
+                <div class="myColumn">
+                    <div class="myFormatColumn">
+                        <div class="textBlockInColumn">
+                            <div class="myFormatBlock">
+                                <div class="letterAlignmentInBlock">
+                                    <div class="myMessage multiLineText">${messages.Content}</div>
+                                </div>
+                                <img src="../../images/iconSmileInMessage.png" alt="iconSmileInMessage" class="iconright hiddenIcon" id="iconSmileRight">
+                                <img src="../../images/iconMenuInMessage.png" alt="iconMenuInMessage" class="iconright hiddenIcon" id="iconMenuRight">
+                            </div>
+                        </div>
+                        <div style="display: inline-flex">
+                            <div class="messageTime">${currentTime}</div>
+                            <img src="../../images/${sentReceivedIcon}" alt="watched">
+                        </div>
+                    </div>
+                </div>`;
+            $('#chatContainer').append(chatMessage);
+        }
     }
 });
+
 
 function getMessages() {
     let friendID = localStorage.getItem('FriendID');
@@ -635,7 +701,7 @@ textChat.addEventListener('dblclick', function (event) {
 });
 
 function fetchLastMessage(sFriendID, messageContent) {
-    fetch(`http://10.2.44.52:8888/api/message/get-message?FriendID=${sFriendID}`, {
+    fetch(`http://localhost:8888/api/message/get-message?FriendID=${sFriendID}`, {
         method: 'GET',
         headers: getHeaders()
     })
@@ -725,17 +791,6 @@ function displayChatFriends(friends) {
         friendName.textContent = getFriendName(friend);
         const messageContent = document.createElement('div');
         messageContent.className = 'messageContent';
-        const hasImages = Array.isArray(friend.Images) && friend.Images.length > 0;
-        const hasFiles = Array.isArray(friend.Files) && friend.Files.length > 0;
-        if (hasImages) {
-            messageContent.textContent = "Đã gửi 1 ảnh";
-        } else if (hasFiles) {
-            messageContent.textContent = "Đã gửi 1 file";
-        } else if (friend.Content) {
-            messageContent.textContent = friend.Content;
-        } else {
-            messageContent.textContent = "Chưa có tin nhắn";
-        }
         individualPhoto.appendChild(img);
         messageBlock.appendChild(friendName);
         individualPhoto.appendChild(dotStatus);

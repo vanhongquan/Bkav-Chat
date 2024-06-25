@@ -25,17 +25,26 @@ document.getElementById("clearUsername").addEventListener("click", function () {
     usernameField.value = "";
 });
 
+document.getElementById("clearDisplayName").addEventListener("click", function () {
+    var usernameField = document.getElementById("displayName");
+    usernameField.value = "";
+});
+
 document.getElementById("registrationButton").addEventListener("click", function () {
     validateForm();
 });
 
 function validateForm() {
+    var displayName = document.getElementById("displayName").value;
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
     var confirmPassword = document.getElementById("confirmPassword").value;
     var errorText = document.getElementById("errorText");
 
-    if (username.trim() === "") {
+    if (displayName.trim() === "") {
+        errorText.textContent = "Vui lòng nhập tên hiển thị.";
+        return;
+    }else if (username.trim() === "") {
         errorText.textContent = "Vui lòng nhập tên đăng ký.";
         return;
     }
@@ -48,12 +57,12 @@ function validateForm() {
         return;
     }
     else {
-        registerUser(username, password);
+        registerUser(username, password, displayName);
     }
 }
 
-function registerUser(username, password) {
-    fetch('http://10.2.44.52:8888/api/auth/register', {
+function registerUser(username, password, displayName) {
+    fetch('http://localhost:8888/api/auth/register', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -61,7 +70,7 @@ function registerUser(username, password) {
         body: JSON.stringify({
             Username: username,
             Password: password,
-            FullName: "quan"
+            FullName: displayName
         })
     })
         .then(response => response.json())
