@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:8888/api';
+const BASE_URL = 'http://10.2.44.52:8888/api';
 const API_URLS = {
     sendMessage: `${BASE_URL}/message/send-message`,
     getMessage: (friendID) => `${BASE_URL}/message/get-message?FriendID=${friendID}`,
@@ -153,14 +153,16 @@ $(document).ready(function () {
         })
         .then(result => {
             const messages = result.data;
-            console.log(messages);
             const isSend = messages.isSend;
             const sentReceivedIcon = isSend === 0 ? 'sent.png' : 'received.png';
             const currentTime = new Date(messages.CreatedAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', timeZone: 'UTC' });
+            $('.noMessages').remove();
+            $('.titleNoMessages').remove();
+            let chatMessage = '';
             if (messages.Images.length > 0) {
                 result.data.Images.forEach(image => {
                     const urlImage = `${BASE_URL}/${image.urlImage}`;
-                    const chatMessage = `        
+                    chatMessage = `        
                         <div class="myColumn">
                             <div class="myFormatColumn">
                                 <div class="textBlockInColumn">
@@ -188,7 +190,7 @@ $(document).ready(function () {
             } else if (result.data.Files.length > 0) {
                 result.data.Files.forEach(file => {
                     const urlFile = `${BASE_URL}/${file.urlFile}`;
-                    const chatMessage = `        
+                    chatMessage = `        
                         <div class="myColumn">
                             <div class="myFormatColumn">
                                 <div class="textBlockInColumn">
@@ -215,7 +217,7 @@ $(document).ready(function () {
                     $('#chatContainer').append(chatMessage);
                 });
             } else {
-                const chatMessage = `        
+                chatMessage = `        
                     <div class="myColumn">
                         <div class="myFormatColumn">
                             <div class="textBlockInColumn">
@@ -257,12 +259,10 @@ function getMessages() {
         return response.json();
     })
     .then(async result => {
-        console.log(result);
         let chatMessage = '';
         const messages = result.data;
         try {
             await saveMessagesToLocal(friendID, messages);
-            console.log
         } catch (error) {
             console.error('Error saving messages to local:', error);
         }
@@ -634,6 +634,57 @@ textChat.addEventListener('dblclick', function (event) {
     });   
 });
 
+function fetchLastMessage(sFriendID, messageContent) {
+    fetch(`http://10.2.44.52:8888/api/message/get-message?FriendID=${sFriendID}`, {
+        method: 'GET',
+        headers: getHeaders()
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status !== 1) {
+            messageContent.textContent = "Chưa có tin nhắn";
+            return;
+        }
+        const messages = data.data;
+        if (messages.length > 0) {
+            const lastMessage = messages[messages.length - 1];
+            const displayMessage = constructDisplayMessage(lastMessage);
+            messageContent.textContent = displayMessage;
+        } else {
+            messageContent.textContent = "Chưa có tin nhắn";
+        }
+    })
+    .catch(error => {
+        console.error('Error fetching last message:', error);
+        messageContent.textContent = "Chưa có tin nhắn";
+    });
+}
+
+function constructDisplayMessage(lastMessage) {
+    let displayMessage = '';
+    const nMessageType = lastMessage.MessageType;
+
+    if (nMessageType === 0) {
+        if (lastMessage.Content) {
+            displayMessage = lastMessage.Content;
+        } else if (lastMessage.Images && lastMessage.Images.length > 0) {
+            displayMessage = "Đã gửi 1 ảnh";
+        } else if (lastMessage.Files && lastMessage.Files.length > 0) {
+            displayMessage = "Đã gửi 1 file";
+        }
+    } else if (nMessageType === 1) {
+        if (lastMessage.Content) {
+            displayMessage = `Bạn: ${lastMessage.Content}`;
+        } else if (lastMessage.Images && lastMessage.Images.length > 0) {
+            displayMessage = "Bạn: Đã gửi 1 ảnh";
+        } else if (lastMessage.Files && lastMessage.Files.length > 0) {
+            displayMessage = "Bạn: Đã gửi 1 file";
+        }
+    }
+
+    return displayMessage;
+}
+
 function displayChatFriends(friends) {
     const friendsListDiv = document.getElementById('friendList');
     friendsListDiv.innerHTML = '';
@@ -692,6 +743,7 @@ function displayChatFriends(friends) {
         chatBlock.appendChild(messageBlock);
         messageBlock.appendChild(messageContent);
         friendsListDiv.appendChild(chatBlock);
+        fetchLastMessage(friend.FriendID, messageContent);
     });
 }
 
@@ -957,10 +1009,12 @@ friendsList.addEventListener('contextmenu', function (event) {
 
 document.getElementById('renameButton').addEventListener('click', function () {
     if (currentFriend && newNameInput.value.trim()) {
+        const headerTitle = document.getElementById('headerTitle');
         const friendId = currentFriend.dataset.friendId;
         const friendNameElement = currentFriend.querySelector('.friendName');
         if (friendNameElement) {
             friendNameElement.textContent = newNameInput.value.trim();
+            headerTitle.textContent = newNameInput.value.trim();
             saveRenamedFriend(friendId, newNameInput.value.trim());
             renameBox.style.display = 'none';
         }

@@ -40,7 +40,7 @@ function validateForm() {
 }
 
 async function loginUser(username, password) {
-    fetch('http://localhost:8888/api/auth/login', {
+    fetch('http://10.2.44.52:8888/api/auth/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
